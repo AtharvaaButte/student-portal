@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - Student Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ["class"],
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                    },
+                    borderRadius: { lg: "var(--radius)", md: "calc(var(--radius) - 2px)" },
+                },
+            },
+        }
+    </script>
+    <style>
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --primary: 222.2 47.4% 11.2%;
+            --primary-foreground: 210 40% 98%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --radius: 0.5rem;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+        }
+
+        .dark {
+            --background: 222.2 84% 4.9%;
+            --foreground: 210 40% 98%;
+            --primary: 210 40% 98%;
+            --primary-foreground: 222.2 47.4% 11.2%;
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-background text-foreground flex min-h-screen flex-col items-center justify-center p-4">
+
+    <div class="w-full max-w-md space-y-6">
+        <div class="flex flex-col space-y-2 text-center">
+            <h1 class="text-2xl font-semibold tracking-tight">Create an account</h1>
+            <p class="text-sm text-muted-foreground">Enter your email below to create your account</p>
+        </div>
+
+        <div class="rounded-xl border bg-card text-card-foreground shadow-sm p-6 space-y-4">
+            <form id="signup-form" class="space-y-4">
+                <div class="space-y-2">
+                    <label class="text-sm font-medium leading-none" for="email">Email</label>
+                    <input id="email" type="email" required placeholder="m@example.com"
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-medium leading-none" for="password">Password</label>
+                    <input id="password" type="password" required
+                        class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
+                </div>
+                <button type="submit" id="submit-btn"
+                    class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 w-full">
+                    Sign Up
+                </button>
+            </form>
+
+            <div id="error-msg" class="hidden text-sm text-red-500 text-center"></div>
+
+            <div class="relative">
+                <div class="absolute inset-0 flex items-center"><span class="w-full border-t"></span></div>
+                <div class="relative flex justify-center text-xs uppercase"><span
+                        class="bg-background px-2 text-muted-foreground">Or</span></div>
+            </div>
+
+            <button
+                class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background border border-input hover:bg-accent hover:text-accent-foreground h-10 py-2 w-full">
+                <i data-lucide="chrome" class="mr-2 h-4 w-4"></i> Google
+            </button>
+        </div>
+
+        <p class="px-8 text-center text-sm text-muted-foreground">
+            Already have an account?
+            <a href="login.html" class="underline underline-offset-4 hover:text-primary">Log in</a>
+        </p>
+    </div>
+
+    <script src="js/auth.js" type="module"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
